@@ -132,6 +132,8 @@ namespace WpQrCode.Controllers
                         }
                         else
                         {
+                            qrToken.Ativo = false;
+                            _domain.Update(qrToken);
                             return Ok("Token expirado.");
                         }
                     }

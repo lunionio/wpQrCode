@@ -63,7 +63,17 @@ namespace WpQrCode.Domains
 
         public Token Update(Token entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                entity.DataEdicao = DateTime.UtcNow;
+                _repository.Update(entity);
+
+                return entity;
+            }
+            catch (Exception e)
+            {
+                throw new TokenException("Não foi possível atualizar o token informado.", e);
+            }
         }
 
         public bool GetLast(int idCliente, out Token token)
@@ -82,6 +92,12 @@ namespace WpQrCode.Domains
                     }
                     break;
                 default:
+                    if(tokenResult != null)
+                    {
+                        tokenResult.Ativo = false;
+                        var r = Update(tokenResult);
+                    }
+
                     result = false;
                     token = null;
                     break;
