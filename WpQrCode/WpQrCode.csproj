@@ -9,7 +9,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CoreCompat.System.Drawing" Version="1.0.0-beta006" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="ZXing.Net" Version="0.16.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WpQrCode.Domains\WpQrCode.Domains.csproj" />
+    <ProjectReference Include="..\WpQrCode.Infrastructure\WpQrCode.Infrastructure.csproj" />
+    <ProjectReference Include="..\WpQrCode.Services\WpQrCode.Services.csproj" />
   </ItemGroup>
 
 </Project>

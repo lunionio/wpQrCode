@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WpQrCode.Entities\WpQrCode.Entities.csproj" />
+    <ProjectReference Include="..\WpQrCode.Infrastructure\WpQrCode.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

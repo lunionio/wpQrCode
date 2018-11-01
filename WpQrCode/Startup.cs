@@ -9,6 +9,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WpQrCode.Domains;
+using WpQrCode.Helpers;
+using WpQrCode.Infrastructure;
+using WpQrCode.Services;
 
 namespace WpQrCode
 {
@@ -24,6 +28,11 @@ namespace WpQrCode
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<SegurancaService>();
+            services.AddTransient<TokenDomain>();
+            services.AddTransient<QrCodeHandler>();
+            services.AddTransient<TokenRepository>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
