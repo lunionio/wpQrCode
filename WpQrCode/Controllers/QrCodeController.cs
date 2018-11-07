@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System;
+using System.Threading.Tasks;
 using WpQrCode.Domains;
 using WpQrCode.Entities;
 using WpQrCode.Helpers;
@@ -22,7 +19,8 @@ namespace WpQrCode.Controllers
         private readonly QrCodeHandler _handler;
         private readonly IConfiguration _configuration;
 
-        public QrCodeController(SegurancaService service, TokenDomain domain, QrCodeHandler handler, IConfiguration configuration)
+        public QrCodeController(SegurancaService service, 
+            TokenDomain domain, QrCodeHandler handler, IConfiguration configuration)
         {
             _service = service;
             _domain = domain;
