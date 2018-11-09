@@ -79,7 +79,7 @@ namespace WpQrCode.Domains
         public bool GetLast(int idCliente, out Token token)
         {
             var tokenResult = _repository.GetList(t => t.IdCliente.Equals(idCliente) 
-                    && t.HasExpiration)?.OrderBy(t => t.ExpirationTime).FirstOrDefault();
+                    && t.HasExpiration)?.OrderByDescending(t => t.ExpirationTime).FirstOrDefault();
             bool result;
 
             switch (tokenResult)
