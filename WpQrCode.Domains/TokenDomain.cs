@@ -42,6 +42,19 @@ namespace WpQrCode.Domains
             }
         }
 
+        public Token GetByName(string nome, int idCliente)
+        {
+            try
+            {
+                var token = _repository.GetSingle(t => t.Nome.Equals(nome) && t.IdCliente.Equals(idCliente) && t.Ativo);
+                return token;
+            }
+            catch (Exception e)
+            {
+                throw new TokenException("Não foi possível recuperar o token.", e);
+            }
+        }
+
         public Token Save(Token entity)
         {
             try

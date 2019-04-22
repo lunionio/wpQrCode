@@ -117,7 +117,15 @@ namespace WpQrCode.Controllers
             {
                 await _service.ValidateTokenAsync(token);
 
-                var qrToken = _domain.GetById(tokenQr.ID, idCliente);
+                var qrToken = default(Token);
+                if (tokenQr.ID > 0)
+                {
+                    qrToken = _domain.GetById(tokenQr.ID, idCliente);
+                }
+                else
+                {
+                    qrToken = _domain.GetByName(tokenQr.Nome, idCliente);
+                }
 
                 if(qrToken != null && qrToken.VerifyHash(tokenQr.Nome))
                 {
